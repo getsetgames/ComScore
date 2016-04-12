@@ -12,6 +12,15 @@ class UComScoreSettings : public UObject
 {
 	GENERATED_BODY()
 	
-public:
-	UComScoreSettings(const FObjectInitializer& ObjectInitializer);
+    public:
+        UComScoreSettings(const FObjectInitializer& ObjectInitializer);
+        
+        UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="C2ID"))
+        FString C2ID;
+        
+        UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="Secret Code"))
+        FString SecretCode;
+        
+        UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="App Name"))
+        FString AppName;
 };
