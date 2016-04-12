@@ -29,7 +29,7 @@
 	<!-- optional additions to the GameActivity imports in GameActivity.java -->
 	<gameActivityImportAdditions>
 		<insert>
-
+import com.comscore.analytics.comScore;
 		</insert>
 	</gameActivityImportAdditions>
 	
