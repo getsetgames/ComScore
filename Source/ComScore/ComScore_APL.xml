@@ -4,7 +4,9 @@
 	<!-- init section is always evaluated once per architecture -->
 	<init>
 		<log text="ComScore init"/>
-
+		<setStringFromProperty result="sComScoreC2Id"            ini="Engine" section="/Script/ComScore.ComScoreSettings" property="ComScoreC2Id"            default=""/>
+		<setStringFromProperty result="sComScoreSecret"          ini="Engine" section="/Script/ComScore.ComScoreSettings" property="ComScoreSecret"          default=""/>
+		<setStringFromProperty result="sComScoreApplicationName" ini="Engine" section="/Script/ComScore.ComScoreSettings" property="ComScoreApplicationName" default=""/>
 	</init>
 
 	<!-- optional updates applied to AndroidManifest.xml -->
