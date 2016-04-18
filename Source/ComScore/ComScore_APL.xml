@@ -88,7 +88,7 @@ comScore.setAppName(appName);
 	<!-- optional additions to GameActivity onPause in GameActivity.java	-->
 	<gameActivityOnPauseAdditions>
 		<insert>
-
+comScore.onExitForeground();
 		</insert>
 	</gameActivityOnPauseAdditions>
 
@@ -96,7 +96,7 @@ comScore.setAppName(appName);
 	<!-- optional additions to GameActivity onResume in GameActivity.java	-->
 	<gameActivityOnResumeAdditions>
 		<insert>
-
+comScore.onEnterForeground();
 		</insert>
 	</gameActivityOnResumeAdditions>
 
