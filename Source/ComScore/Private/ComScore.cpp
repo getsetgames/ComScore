@@ -30,6 +30,29 @@ void FComScore::StartupModule()
 										 GetMutableDefault<UComScoreSettings>()
 										 );
 	}
+    
+#if PLATFORM_IOS
+    const UComScoreSettings* DefaultSettings = GetDefault<UComScoreSettings>();
+    
+    NSString* C2ID       = DefaultSettings->C2ID.GetNSString();
+    NSString* SecretCode = DefaultSettings->SecretCode.GetNSString();
+    NSString* AppName    = DefaultSettings->AppName.GetNSString();
+    
+    if (!C2ID || !SecretCode || !AppName)
+    {
+        UE_LOG(LogComScore, Error, TEXT("error with c2id, secret code or app name"));
+        return;
+    }
+    
+    [CSComScore setAppContext];
+    [CSComScore setCustomerC2:C2ID];
+    [CSComScore setPublisherSecret:SecretCode];
+    [CSComScore setAppName:AppName];
+    
+#elif PLATFORM_ANDROID
+    
+#endif
+
 }
 
 
