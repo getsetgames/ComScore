@@ -6,7 +6,7 @@
 #include "ComScorePrivatePCH.h"
 
 #if PLATFORM_IOS
-#include "CSComScore.h"
+
 #elif PLATFORM_ANDROID
 #include "Android/AndroidJNI.h"
 #include "AndroidApplication.h"
