@@ -8,13 +8,8 @@
 #if PLATFORM_IOS
 
 #elif PLATFORM_ANDROID
-#include "Android/AndroidJNI.h"
-#include "AndroidApplication.h"
-#endif
-
-#if PLATFORM_IOS
-
-#elif PLATFORM_ANDROID
 
 #endif
+
+
 
