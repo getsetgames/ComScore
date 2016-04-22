@@ -7,6 +7,11 @@
 #include "ComScoreSettings.h"
 #include "ISettingsModule.h"
 
+#if PLATFORM_IOS
+#include "CSComScore.h"
+#endif
+
+
 DEFINE_LOG_CATEGORY(LogComScore);
 
 #define LOCTEXT_NAMESPACE "ComScore"
