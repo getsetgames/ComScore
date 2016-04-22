@@ -8,5 +8,8 @@
 
 UComScoreSettings::UComScoreSettings(const FObjectInitializer& ObjectInitializer)
 : Super(ObjectInitializer)
+, C2ID("")
+, SecretCode("")
+, AppName("")
 {
 }
