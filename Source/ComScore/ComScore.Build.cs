@@ -13,13 +13,15 @@ namespace UnrealBuildTool.Rules
 		{
 			PublicIncludePaths.AddRange(
 				new string[] {
+					"../../../../Source/Runtime/Core/Public",
+					"../../../../Source/Runtime/Launch/Public"
 					// ... add public include paths required here ...
 				}
 				);
 
 			PrivateIncludePaths.AddRange(
 				new string[] {
-					"Developer/ComScore/Private",
+					"ComScore/Private"
 					// ... add other private include paths required here ...
 				}
 				);
@@ -53,6 +55,8 @@ namespace UnrealBuildTool.Rules
 				"Settings"
 			}
 			);
+
+			PublicIncludePathModuleNames.Add("Launch");
 
 
 			if (Target.Platform == UnrealTargetPlatform.IOS) {
