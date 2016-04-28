@@ -15,6 +15,7 @@
 		<addPermission android:name="android.permission.INTERNET"/>
 		<addPermission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 		<addPermission android:name="android.permission.ACCESS_WIFI_STATE"/>
+		<addLibrary    android:name="com.google.android.maps"/>
 	</androidManifestUpdates> 
 
 	<!-- optional additions to proguard -->
