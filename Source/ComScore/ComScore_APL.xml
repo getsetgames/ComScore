@@ -21,7 +21,8 @@
 	<!-- optional additions to proguard -->
 	<proguardAdditions>
 		<insert>
-
+-keep class com.comscore.** { *; }
+-dontwarn com.comscore.**
 		</insert>
 	</proguardAdditions>
 	
