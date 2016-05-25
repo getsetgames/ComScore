@@ -52,17 +52,18 @@ import com.comscore.analytics.comScore;
 	</gameActivityReadMetadataAdditions>
 	
 	<!-- optional additions to GameActivity onCreate in GameActivity.java -->
-	<gameActivityOnCreateAdditions><![CDATA[
-//comScore.setAppContext(this.getApplicationContext());		
-
+	<gameActivityOnCreateAdditions>
+		<insert>
 String c2id    = "</insert><insertValue value="$S(sComScoreC2Id)" /><insert>";
 String secret  = "</insert><insertValue value="$S(sComScoreSecret)" /><insert>";
 String appName = "</insert><insertValue value="$S(sComScoreApplicationName)" /><insert>";
 
-//comScore.setCustomerC2(c2id);
-//comScore.setPublisherSecret(secret);
-//comScore.setAppName(appName);
-	]]></gameActivityOnCreateAdditions>
+comScore.setAppContext(this.getApplicationContext());		
+comScore.setCustomerC2(c2id);
+comScore.setPublisherSecret(secret);
+comScore.setAppName(appName);
+		</insert>
+	</gameActivityOnCreateAdditions>
 
 	<!-- optional additions to GameActivity onDestroy in GameActivity.java -->
 	<gameActivityOnDestroyAdditions>
