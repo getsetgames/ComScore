@@ -52,7 +52,11 @@ void FComScore::StartupModule()
     [CSComScore setAppContext];
     [CSComScore setCustomerC2:C2ID];
     [CSComScore setPublisherSecret:SecretCode];
-    [CSComScore setAppName:AppName];
+    
+    if (AppName.Length() > 0)
+    {
+        [CSComScore setAppName:AppName];
+    }
     
 #elif PLATFORM_ANDROID
     
