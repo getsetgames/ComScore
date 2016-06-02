@@ -59,7 +59,7 @@ void FComScore::StartupModule()
     }
     
 #elif PLATFORM_ANDROID
-    
+    // Initialization for Android is done in ComScore APL file
 #endif
 
 }
