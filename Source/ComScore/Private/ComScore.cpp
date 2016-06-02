@@ -53,7 +53,7 @@ void FComScore::StartupModule()
     [CSComScore setCustomerC2:C2ID];
     [CSComScore setPublisherSecret:SecretCode];
     
-    if (AppName.Length() > 0)
+    if (AppName.length > 0)
     {
         [CSComScore setAppName:AppName];
     }
