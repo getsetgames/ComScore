@@ -69,13 +69,8 @@ namespace UnrealBuildTool.Rules
 				PublicFrameworks.AddRange( 
 					new string[] 
 					{ 
-						"AdSupport",
-						"StoreKit",
-						"CFNetwork",
 						"SystemConfiguration",
-						"UIKit",
-						"Foundation",
-						"CoreGraphics"
+						"Security"
 					}
 				);
 			}
