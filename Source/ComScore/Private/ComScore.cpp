@@ -13,7 +13,7 @@ DEFINE_LOG_CATEGORY(LogComScore);
 
 class FComScore : public IComScore
 {
-	virtual void StartupModule() override;
+	virtual void StartupModule()  override;
 	virtual void ShutdownModule() override;
 };
 
