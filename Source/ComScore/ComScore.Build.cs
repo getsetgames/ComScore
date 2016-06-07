@@ -73,6 +73,9 @@ namespace UnrealBuildTool.Rules
 						"Security"
 					}
 				);
+
+				string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, BuildConfiguration.RelativeEnginePath);
+				AdditionalPropertiesForReceipt.Add(new ReceiptProperty("IOSPlugin", Path.Combine(PluginPath, "ComScore_IPL.xml")));
 			}
 			else if(Target.Platform == UnrealTargetPlatform.Android)
 			{

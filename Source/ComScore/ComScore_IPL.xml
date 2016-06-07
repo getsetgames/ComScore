@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root xmlns:android="http://schemas.ios.com/res/ios">
+	<!-- init section is always evaluated once per architecture -->
+	<init>
+		<log text="ComScore IPL init"/>
+
+		<setStringFromProperty result="sComScoreC2ID"            ini="Engine" section="/Script/ComScore.ComScoreSettings" property="C2ID"              default=""/>
+		<setStringFromProperty result="sComScorePublisherSecret" ini="Engine" section="/Script/ComScore.ComScoreSettings" property="PublisherSecret"   default=""/>
+		<setStringFromProperty result="sComScoreAppName"         ini="Engine" section="/Script/ComScore.ComScoreSettings" property="AppName"           default=""/>
+		<setBoolFromProperty   result="bComScoreHttpLoading"     ini="Engine" section="/Script/ComScore.ComScoreSettings" property="SecureHttpLoading" default="false"/>
+	</init>
+
+	<infoPlist>
+		<plutilCommands><![CDATA[-insert ComScore -xml "<key>C2ID</key><string>$S(sComScoreC2ID)</string><key>PublisherSecret</key><string>$S(sComScorePublisherSecret)</string><key>AppName</key><string>$S(sComScoreApplicationName)</string><key>SecureHttpLoading</key><$B(bComScoreHttpLoading)/>"]]></plutilCommands>
+	</infoPlist>
+
+</root>
