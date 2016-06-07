@@ -13,9 +13,7 @@ class UComScoreComponent : public UActorComponent
 {
 	GENERATED_BODY()
 	
-public:
-
-	
+public:	
 	void OnRegister() override;
 	void OnUnregister() override;
 	
