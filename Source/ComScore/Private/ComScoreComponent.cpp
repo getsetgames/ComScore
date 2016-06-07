@@ -8,7 +8,6 @@
 void UComScoreComponent::OnRegister()
 {
 	Super::OnRegister();
-	
 }
 
 void UComScoreComponent::OnUnregister()
