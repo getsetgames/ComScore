@@ -11,5 +11,6 @@ UComScoreSettings::UComScoreSettings(const FObjectInitializer& ObjectInitializer
 , C2ID("")
 , SecretCode("")
 , AppName("")
+, SecureHttpLoading(false)
 {
 }

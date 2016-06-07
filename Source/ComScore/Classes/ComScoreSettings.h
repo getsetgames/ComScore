@@ -23,4 +23,7 @@ class UComScoreSettings : public UObject
         
         UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="App Name"))
         FString AppName;
+    
+        UPROPERTY(Config, EditAnywhere, Category=General, meta=(DisplayName="Secure HTTP Loading"))
+        bool SecureHttpLoading;
 };
