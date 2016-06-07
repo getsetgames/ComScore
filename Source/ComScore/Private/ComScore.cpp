@@ -7,11 +7,6 @@
 #include "ComScoreSettings.h"
 #include "ISettingsModule.h"
 
-#if PLATFORM_IOS
-#include "CSComScore.h"
-#endif
-
-
 DEFINE_LOG_CATEGORY(LogComScore);
 
 #define LOCTEXT_NAMESPACE "ComScore"
@@ -24,6 +19,114 @@ class FComScore : public IComScore
 
 IMPLEMENT_MODULE( FComScore, ComScore )
 
+
+#if PLATFORM_IOS
+
+#include "CSComScore.h"
+
+@interface ComScoreDelegate : NSObject
+{
+}
+
+@end
+
+static ComScoreDelegate *cs;
+
+@implementation ComScoreDelegate
+
++(void)load
+{
+    if (!cs)
+    {
+        cs = [[ComScoreDelegate alloc] init];
+    }
+}
+
+-(id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)
+                                                     name:UIApplicationDidFinishLaunchingNotification  object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)
+                                                     name:UIApplicationWillEnterForegroundNotification  object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:)
+                                                     name:UIApplicationDidEnterBackgroundNotification  object:nil];
+    }
+    
+    return self;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
+}
+
+-(void)applicationDidFinishLaunching:(NSNotification *)n
+{
+    NSDictionary *dLaunchOptionsUrl = n.userInfo["UIApplicationLaunchOptionsURLKey"];
+    
+    if (!dLaunchOptionsUrl)
+    {
+        NSDictionary *d = [NSBundle mainBundle].infoDictionary[@"ComScore"];
+        
+        if (d)
+        {
+            NSString *C2ID            = d[@"CustomerC2"];
+            NSString *PublisherSecret = d[@"PublisherSecret"];
+            NSString *AppName         = d[@"AppName"];
+
+            BOOL SecureHttpLoading = [d[@"SecureHttpLoading"] boolValue];
+            
+            [CSComScore setAppContext];
+            
+#if UE_BUILD_DEVELOPMENT
+            [CSComScore setDebug:YES];
+#else
+            [CSComScore setDebug:NO];
+#endif
+            
+            [CSComScore setSecure:SecureHTTPLoading];
+            [CSComScore setCustomerC2:C2ID];
+            [CSComScore setPublisherSecret:PublisherSecret];
+            
+            if (AppName.length > 0)
+            {
+                [CSComScore setAppName:AppName];
+            }
+            else
+            {
+                UE_LOG(LogComScore, Log, TEXT("No app name specified bundle ID will be used"));
+            }
+        }
+        else
+        {
+            UE_LOG(LogComScore, Log, TEXT("No 'ComScore' dictionary key specified in info.plist"));
+            UE_LOG(LogComScore, Log, TEXT(" - require CustomerC2 key/string value"));
+            UE_LOG(LogComScore, Log, TEXT(" - require PublisherSecret key/string value"));
+        }
+    }
+}
+
+-(void)applicationWillEnterForeground:(NSNotification *)n
+{
+    [CSComScore onEnterForeground];
+}
+
+-(void)applicationDidEnterBackground:(NSNotification *)n
+{
+    [CSComScore onExitForeground];
+}
+
+@end
+
+#endif
+
 void FComScore::StartupModule()
 {
 	// register settings
@@ -35,33 +138,6 @@ void FComScore::StartupModule()
 										 GetMutableDefault<UComScoreSettings>()
 										 );
 	}
-    
-#if PLATFORM_IOS
-    const UComScoreSettings* DefaultSettings = GetDefault<UComScoreSettings>();
-    
-    NSString* C2ID       = DefaultSettings->C2ID.GetNSString();
-    NSString* SecretCode = DefaultSettings->SecretCode.GetNSString();
-    NSString* AppName    = DefaultSettings->AppName.GetNSString();
-    
-    if (!C2ID || !SecretCode || !AppName)
-    {
-        UE_LOG(LogComScore, Error, TEXT("error with c2id, secret code or app name"));
-        return;
-    }
-    
-    [CSComScore setAppContext];
-    [CSComScore setCustomerC2:C2ID];
-    [CSComScore setPublisherSecret:SecretCode];
-    
-    if (AppName.length > 0)
-    {
-        [CSComScore setAppName:AppName];
-    }
-    
-#elif PLATFORM_ANDROID
-    // Initialization for Android is done in ComScore APL file
-#endif
-
 }
 
 
