@@ -115,12 +115,12 @@ static ComScoreDelegate *cs;
 
 -(void)applicationWillEnterForeground:(NSNotification *)n
 {
-    [CSComScore onEnterForeground];
+//    [CSComScore onEnterForeground];
 }
 
 -(void)applicationDidEnterBackground:(NSNotification *)n
 {
-    [CSComScore onExitForeground];
+  //  [CSComScore onExitForeground];
 }
 
 @end
