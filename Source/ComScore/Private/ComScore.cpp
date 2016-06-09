@@ -69,7 +69,7 @@ static ComScoreDelegate *cs;
 
 -(void)applicationDidFinishLaunching:(NSNotification *)n
 {
-    NSDictionary *dLaunchOptionsUrl = n.userInfo["UIApplicationLaunchOptionsURLKey"];
+    NSDictionary *dLaunchOptionsUrl = n.userInfo[@"UIApplicationLaunchOptionsURLKey"];
     
     if (!dLaunchOptionsUrl)
     {
