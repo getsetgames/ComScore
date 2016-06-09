@@ -12,7 +12,7 @@
 	</init>
 
 	<infoPlist>
-		<plutilCommands><![CDATA[-insert ComScore -xml "<key>C2ID</key><string>$S(sComScoreC2ID)</string><key>PublisherSecret</key><string>$S(sComScorePublisherSecret)</string><key>AppName</key><string>$S(sComScoreApplicationName)</string><key>SecureHttpLoading</key><$B(bComScoreHttpLoading)/>"]]></plutilCommands>
+		<plutilCommands><![CDATA[-insert ComScore -xml "<dict><key>C2ID</key><string>$S(sComScoreC2ID)</string><key>PublisherSecret</key><string>$S(sComScorePublisherSecret)</string><key>AppName</key><string>$S(sComScoreAppName)</string><key>SecureHttpLoading</key><$B(bComScoreHttpLoading)/></dict>"]]></plutilCommands>
 	</infoPlist>
 
 </root>
