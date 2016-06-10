@@ -73,16 +73,16 @@ static ComScoreDelegate *cs;
     
     if (!dLaunchOptionsUrl)
     {
-        NSDictionary *d = [NSBundle mainBundle].infoDictionary[@"ComScore"];
+        NSDictionary *d = [[NSBundle mainBundle] infoDictionary][@"ComScore"];
         
         if (d)
         {
-            NSString *C2ID            = d[@"CustomerC2"];
+            NSString *C2ID            = d[@"C2ID"];
             NSString *PublisherSecret = d[@"PublisherSecret"];
             NSString *AppName         = d[@"AppName"];
 
-            BOOL SecureHttpLoading = [d[@"SecureHttpLoading"] boolValue];
-            
+            BOOL SecureHttpLoading = d[@"SecureHttpLoading"] ? [d[@"SecureHttpLoading"] boolValue] : NO;
+
             [CSComScore setAppContext];
             
 #if UE_BUILD_DEVELOPMENT
@@ -91,7 +91,7 @@ static ComScoreDelegate *cs;
             [CSComScore setDebug:NO];
 #endif
             
-            [CSComScore setSecure:SecureHTTPLoading];
+            [CSComScore setSecure:SecureHttpLoading];
             [CSComScore setCustomerC2:C2ID];
             [CSComScore setPublisherSecret:PublisherSecret];
             
