@@ -24,6 +24,7 @@
 		<insert>
 -keep class com.comscore.** { *; }
 -dontwarn com.comscore.**
+-dontwarn com.google.android.maps.**
 		</insert>
 	</proguardAdditions>
 	
