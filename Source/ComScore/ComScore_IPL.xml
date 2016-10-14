@@ -12,8 +12,11 @@
 	</init>
 
 	<iosPListUpdates>
-		<setElement result="eComScore"   value="ComScore"/>
-		<addElement tag="$"               name="eComScore"/>
-	</iosPListUpdates>
+		<insert><![CDATA[
+			<key>ComScore</key>
+			<dict>
+
+			</dict>
+	]]></insert></iosPListUpdates>
 
 </root>
