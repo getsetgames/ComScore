@@ -69,7 +69,8 @@ namespace UnrealBuildTool.Rules
 					new string[] 
 					{ 
 						"SystemConfiguration",
-						"Security"
+						"Security",
+						"MediaPlayer"
 					}
 				);
 
