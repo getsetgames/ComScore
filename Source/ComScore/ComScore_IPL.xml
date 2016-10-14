@@ -11,8 +11,11 @@
 		<setBoolFromProperty   result="bComScoreHttpLoading"     ini="Engine" section="/Script/ComScore.ComScoreSettings" property="SecureHttpLoading" default="false"/>
 	</init>
 
-	<infoPlist>
-		<plutilCommands><![CDATA[-insert ComScore -xml "<dict><key>C2ID</key><string>$S(sComScoreC2ID)</string><key>PublisherSecret</key><string>$S(sComScorePublisherSecret)</string><key>AppName</key><string>$S(sComScoreAppName)</string><key>SecureHttpLoading</key><$B(bComScoreHttpLoading)/></dict>"]]></plutilCommands>
-	</infoPlist>
+	<iosPListUpdates>
+<!-- 		<plutilCommands><![CDATA[-insert ComScore -xml "<dict><key>C2ID</key><string>$S(sComScoreC2ID)</string><key>PublisherSecret</key><string>$S(sComScorePublisherSecret)</string><key>AppName</key><string>$S(sComScoreAppName)</string><key>SecureHttpLoading</key><$B(bComScoreHttpLoading)/></dict>"]]></plutilCommands> -->
+		<insertNewline/>
+		<insertNewline/>
+		<insertNewline/>
+	</iosPListUpdates>
 
 </root>
