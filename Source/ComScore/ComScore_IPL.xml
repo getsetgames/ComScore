@@ -48,7 +48,6 @@
 					<addElement       tag="$"         name="dComScore"/>
 			    	<addElement       tag="$"         name="dComScoreRootDict"/>
 
-			    	<break/>
 			    </true>
 		    </if>
 		</loopElements>
