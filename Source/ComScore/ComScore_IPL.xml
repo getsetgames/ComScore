@@ -18,36 +18,35 @@
 
 			<if condition="isRootDictionary">
 				<true> 
- 					<setElement    result="dComScore"         value="key" text="ComScore"/>
-			    	<setElement    result="dComScoreRootDict" value="dict"/>
+ 					<setElement result="dComScore"               value="key"    text="ComScore"/>
+			    	<setElement result="dComScoreRootDict"       value="dict"/>
 
-			    	<setElement    result="eC2ID"            value="key"    text="C2ID"/>
-			    	<setElement    result="eC2IDValue"       value="string" text="$S(sComScoreC2ID)"/>
+			    	<setElement result="eC2ID"                   value="key"    text="C2ID"/>
+			    	<setElement result="eC2IDValue"              value="string" text="$S(sComScoreC2ID)"/>
 
-			    	<setElement    result="ePublisherSecret"      value="key"    text="PublisherSecret"/>
-			    	<setElement    result="ePublisherSecretValue" value="string" text="$S(sComScorePublisherSecret)"/>
+			    	<setElement result="ePublisherSecret"        value="key"    text="PublisherSecret"/>
+			    	<setElement result="ePublisherSecretValue"   value="string" text="$S(sComScorePublisherSecret)"/>
 
-					<setElement    result="eComScoreAppName"      value="key"    text="AppName"/>
-			    	<setElement    result="eComScoreAppNameValue" value="string" text="$S(sComScoreAppName)"/>
+					<setElement result="eComScoreAppName"        value="key"    text="AppName"/>
+			    	<setElement result="eComScoreAppNameValue"   value="string" text="$S(sComScoreAppName)"/>
 
-			    	<setElement    result="eSecureHTTPLoading"      value="key" text="SecureHttpLoading"/>
-			    	<setElement    result="eSecureHTTPLoadingValue" value="$B(bComScoreHttpLoading)"/>
+			    	<setElement result="eSecureHTTPLoading"      value="key"    text="SecureHttpLoading"/>
+			    	<setElement result="eSecureHTTPLoadingValue" value="$B(bComScoreHttpLoading)"/>
 
-			    	<addElement       tag="$dComScoreRootDict" name="eC2ID"/>
-			    	<addElement       tag="$dComScoreRootDict" name="eC2IDValue"/>
+			    	<addElement tag="$dComScoreRootDict"         name="eC2ID"/>
+			    	<addElement tag="$dComScoreRootDict"         name="eC2IDValue"/>
 
-			    	<addElement       tag="$dComScoreRootDict" name="ePublisherSecret"/>
-			    	<addElement       tag="$dComScoreRootDict" name="ePublisherSecretValue"/>
+			    	<addElement tag="$dComScoreRootDict"         name="ePublisherSecret"/>
+			    	<addElement tag="$dComScoreRootDict"         name="ePublisherSecretValue"/>
 
-					<addElement       tag="$dComScoreRootDict" name="eComScoreAppName"/>
-			    	<addElement       tag="$dComScoreRootDict" name="eComScoreAppNameValue"/>
+					<addElement tag="$dComScoreRootDict"         name="eComScoreAppName"/>
+			    	<addElement tag="$dComScoreRootDict"         name="eComScoreAppNameValue"/>
 
-			    	<addElement       tag="$dComScoreRootDict" name="eSecureHTTPLoading"/>
-			    	<addElement       tag="$dComScoreRootDict" name="eSecureHTTPLoadingValue"/>
+			    	<addElement tag="$dComScoreRootDict"         name="eSecureHTTPLoading"/>
+			    	<addElement tag="$dComScoreRootDict"         name="eSecureHTTPLoadingValue"/>
 
-					<addElement       tag="$"         name="dComScore"/>
-			    	<addElement       tag="$"         name="dComScoreRootDict"/>
-
+					<addElement tag="$" name="dComScore"/>
+			    	<addElement tag="$" name="dComScoreRootDict"/>			  
 			    </true>
 		    </if>
 		</loopElements>
