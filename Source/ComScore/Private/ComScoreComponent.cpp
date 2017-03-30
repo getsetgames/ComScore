@@ -3,6 +3,7 @@
 //  Copyright (c) 2016 Get Set Games Inc. All rights reserved.
 //
 
+#include "ComScoreComponent.h"
 #include "ComScorePrivatePCH.h"
 
 void UComScoreComponent::OnRegister()
