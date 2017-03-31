@@ -5,6 +5,7 @@
 
 #pragma once
 
+#include "Components/ActorComponent.h"
 #include "ComScoreFunctions.h"
 #include "ComScoreComponent.generated.h"
 
