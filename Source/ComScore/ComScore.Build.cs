@@ -9,7 +9,7 @@ namespace UnrealBuildTool.Rules
 {
 	public class ComScore : ModuleRules
 	{
-		public ComScore(TargetInfo Target)
+		public ComScore(ReadOnlyTargetRules Target) : base(Target)
 		{
 			PublicIncludePaths.AddRange(
 				new string[] {
